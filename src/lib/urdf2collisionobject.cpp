@@ -17,11 +17,18 @@ Urdf2CollisionObject::Urdf2CollisionObject():nh_priv_("~"){
 }
 
 void Urdf2CollisionObject::load(){
-    XmlRpc::XmlRpcValue my_list;
-    nh_priv_.hasParam("my_param"); // existence
-    nh_.getParam("my_list", my_list);//
-    my_list.getType() == XmlRpc::XmlRpcValue::TypeArray; // test correctness
+    XmlRpc::XmlRpcValue xmlval_path_array;
+    std::vector<std::string> str_path_array;
+    nh_priv_.hasParam("object_files"); // existence
+    nh_.getParam("object_files", xmlval_path_array);//
+    if(xmlval_path_array.getType() != XmlRpc::XmlRpcValue::TypeArray){
+        return;
+    }
+    for(unsigned i=0; i < xmlval_path_array.size(); i++) {
+        str_path_array.push_back(xmlval_path_array[i]);
+    }
 
+    /*
     urdf::Model model;
     KDL::Tree my_tree;
       if (!model.initFile("")){
@@ -32,7 +39,7 @@ void Urdf2CollisionObject::load(){
       kdl_parser::treeFromUrdfModel(my_model, my_tree);
 
       rsp= RobotStatePublisher(my_tree);
-      rsp.publishFixedTransforms();
+      rsp.publishFixedTransforms();*/
 
 }
 } /* urdf2collisionobject */ 

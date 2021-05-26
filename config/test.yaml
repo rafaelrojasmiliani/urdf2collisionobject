@@ -1,0 +1,3 @@
+---
+object_files:
+  - $(find urdf2collisionobject)/urdf/test.urdf
