@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="cube">
+  <xacro:arg name="width" default="0.05"/>
+  <xacro:macro name="cube" params="width">
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <box size="${width} ${width} ${width}"/>
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+  <xacro:cube width="$(arg width)"/>
+</robot>

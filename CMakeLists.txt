@@ -24,7 +24,6 @@ catkin_package(
   moveit_visual_tools
   rosparam_shortcuts
   std_msgs
-  trajectory_msgs
   urdf
   robot_state_publisher
   kdl_parser
@@ -34,8 +33,3 @@ catkin_package(
   EIGEN3)
 
 include_directories(${catkin_INCLUDE_DIRS} ${Eigen3_INCLUDE_DIRS})
-
-set(LIB_SOURCES src/lib/urdf2collisionobject.cpp)
-
-target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES}
-                      ${Eigen3_LIBRARIES})

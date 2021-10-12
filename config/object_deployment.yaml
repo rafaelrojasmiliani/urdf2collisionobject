@@ -1,0 +1,4 @@
+---
+name_1:
+  type: object_1
+  initial_pose: [0 0 0 0 0 0]

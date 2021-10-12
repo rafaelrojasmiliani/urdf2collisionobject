@@ -1,3 +1,16 @@
 ---
-object_files:
-  - $(find urdf2collisionobject)/urdf/test.urdf
+object_1:
+  xacro: $(find urdf2collisionobject)/urdf/cube.xacro
+  subframes:
+    - name: point_a
+      pose: [0, 0, 0.025, 0, 0, 0]
+  parameters:
+    width: 0.023
+
+object_2:
+  xacro: $(find urdf2collisionobject)/urdf/cube.xacro
+  subframes:
+    - name: point_a
+      pose: [0, 0, 0.025, 0, 0, 0]
+  parameters:
+    width: 0.043

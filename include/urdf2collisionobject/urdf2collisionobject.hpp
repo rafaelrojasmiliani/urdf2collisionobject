@@ -1,27 +1,16 @@
-#ifndef URDF2COLLISIONOBJECT_H
-#define URDF2COLLISIONOBJECT_H
 
-// ROS
-#include <ros/ros.h>
-namespace urdf2collisionobject
-{
-    
-class Urdf2CollisionObject
-{
-    
+#ifndef URDF_TO_COLLSION_OBJECT
+#define URDF_TO_COLLSION_OBJECT
+#include <Eigen/Geometry>
+#include <map>
+#include <moveit_msgs/CollisionObject.h>
+#include <urdf/model.h>
 
-public:
-    Urdf2CollisionObject(const ros::NodeHandle& nh);
-    Urdf2CollisionObject();
-    virtual ~Urdf2CollisionObject();
+namespace urdf_to_collision_object {
 
-    void load();
-private:
-
-  ros::NodeHandle nh_;
-  ros::NodeHandle nh_priv_;
-};
-
-
-} /* urdf2collisionobject */ 
-#endif /* URDF2COLLISIONOBJECT_H */
+bool urdf_to_collision_object(urdf::Model &_urdf_model,
+                              moveit_msgs::CollisionObject &_result);
+void update_frames(const Eigen::Isometry3d &_base_pose,
+                   moveit_msgs::CollisionObject &_result);
+} // namespace urdf_to_collision_object
+#endif /* ifndef URDF_TO_COLLSION_OBJECT */
